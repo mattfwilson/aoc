@@ -1,5 +1,6 @@
-inputs = open('inputs.txt', 'r')
-lines = inputs.readlines()
-for line in lines:
-    print(line)
-    
+import os
+print(os.getcwd())
+
+inputs = open("inputs.txt", "r")
+for i in inputs:
+    print(i)
