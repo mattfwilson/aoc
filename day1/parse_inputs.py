@@ -1,6 +1,5 @@
 import os
 print(os.getcwd())
 
-inputs = open("inputs.txt", "r")
-for i in inputs:
-    print(i)
+parsed = [lambda :item.strip() for item in open('inputs.txt').readlines()]
+print(parsed)
