@@ -1,5 +1,4 @@
-import os
-print(os.getcwd())
-
-parsed = [lambda :item.strip() for item in open('inputs.txt').readlines()]
-print(parsed)
+inputs = open('inputs.txt').readlines()
+print(inputs)
+# parsed = [lambda : item.strip() for item in inputs]
+# print(parsed)
