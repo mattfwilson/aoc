@@ -1,4 +1,6 @@
 inputs = open('inputs.txt').readlines()
-print(inputs)
+for i in inputs:
+    print(i.strip())
+
 # parsed = [lambda : item.strip() for item in inputs]
 # print(parsed)
