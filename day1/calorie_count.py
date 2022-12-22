@@ -10,14 +10,14 @@ for line in lines:
 
 for line in lines:
     total = 0
-    int_line = int(line.strip())
-    if int_line == '':
+    print(type(line))
+    if line == '':
         if total > highest:
             highest = total
         continue
     else:
+        int_line = int(line)
         int_line += total
         continue
 
-print(f'There are {blanks} blanks lines.')
-print(f'There are {filled} filled lines.')
+print(highest)
