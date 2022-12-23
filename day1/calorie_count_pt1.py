@@ -10,6 +10,7 @@ for line in lines:
         print(f'EMPTY LINE - {type(line)}')
         if total > highest:
             highest = total
+            total = 0
         else:
             total = 0
     if line != '':
