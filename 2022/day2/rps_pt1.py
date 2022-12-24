@@ -8,6 +8,7 @@ for line in lines:
     print(line.strip().replace(' ', ''))
     for key, val in scores.items():
         for char in line:
-            if key in char:
-                res = numbered.append(val)
-                print(res)
+            if char in key:
+                with open('num_inputs.txt', 'w') as num_file:
+                    num_file.write(str(val))
+
