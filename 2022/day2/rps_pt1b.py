@@ -3,7 +3,18 @@ with open('inputs.txt', 'r') as file:
 
 for line in lines:
     for char in line:
-        char.replace('A', '1')
+        if char == 'A':
+            char.replace('A', '1')
+        if char == 'B':
+            char.replace('A', '2')
+        if char == 'C':
+            char.replace('A', '3')
+        if char == 'X':
+            char.replace('A', '1')
+        if char == 'Y':
+            char.replace('A', '2')
+        if char == 'Z':
+            char.replace('A', '3')
     
     print(line.strip().replace(' ', ''))
 
