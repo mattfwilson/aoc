@@ -7,13 +7,15 @@ with open('inputs.txt', 'r') as file:
 
 for depth in depths:
     num_depth = int(depth.strip())
-    print(f'{num_depth} - {type(num_depth)}')
+    print(f'{num_depth} - {type(num_depth)}')   
     if num_depth > current:
         current = num_depth
         increases += 1
+        print(f'{num_depth} increased!')
     else:
         current = num_depth
         decreases += 1
+        print(f'{num_depth} decreased!')
 
 print(f'Increases: {increases}')
 print(f'Decreases: {decreases}')
