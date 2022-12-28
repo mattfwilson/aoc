@@ -11,7 +11,7 @@ while True:
         three += num_depth
         print(f'{num_depth} - {type(num_depth)}')
         counter += 1
-        if counter == 3:
+        if counter == 20:
             groups.append(three)
             counter = 0
             threes = 0
