@@ -11,10 +11,10 @@ while True:
         if counter == 3:
             groups.append(segment)
             counter = 0
-            threes = 0
+            segment = 0
         else:
             segment += num_depth # first segment should be 482
-            print(f'{num_depth} - {type(num_depth)}')
+            print(f'{num_depth}')
             counter += 1
     break
 print(groups)
