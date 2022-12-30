@@ -13,8 +13,9 @@ while True:
             counter = 0
             segment = 0
         else:
-            segment += num_depth # first segment should be 482
+            segment = segment + num_depth # first segment should be 482
             print(f'{num_depth}')
-            counter += 1
+            counter = counter + 1
     break
 print(groups)
+print(segment)
