@@ -8,14 +8,14 @@ with open('inputs.txt', 'r') as file:
 while True:
     for depth in depths:
         num_depth = int(depth.strip())
-        if counter == 3:
-            groups.append(segment)
-            counter = 0
-            segment = 0
-        else:
-            segment = segment + num_depth # first segment should be 482
+        if counter < 3:
+            segment += num_depth
             print(f'{num_depth}')
             counter = counter + 1
+        else:
+            groups.append(segment)
+            counter = 0
     break
+
 print(groups)
 print(segment)
