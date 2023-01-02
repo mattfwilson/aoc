@@ -19,3 +19,5 @@ while True:
 
 print(groups)
 print(segment)
+
+# test for git
