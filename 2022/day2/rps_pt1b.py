@@ -6,3 +6,5 @@ for line in lines:
     print(line.strip().replace(' ', ''))
     for char in line:
         print(line)
+
+print(f'Hello world')
