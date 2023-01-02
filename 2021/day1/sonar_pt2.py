@@ -1,6 +1,6 @@
 counter = 0
-groups = []
 segment = 0
+groups = []
 
 with open('inputs.txt', 'r') as file:
     depths = file.readlines()
