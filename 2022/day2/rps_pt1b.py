@@ -3,3 +3,6 @@ with open('inputs.txt', 'r') as file:
 
 for line in lines:
     print(line.strip().replace(' ', ''))
+    for char in line:
+        if char == 'A':
+            print(f'There is an A.')
