@@ -1,4 +1,4 @@
-counter = 0
+counter = 1
 segment = 0
 groups = []
 
@@ -8,16 +8,9 @@ with open('inputs.txt', 'r') as file:
 while True:
     for depth in depths:
         num_depth = int(depth.strip())
-        if counter < 3:
-            segment += num_depth
-            print(f'{num_depth}')
-            counter = counter + 1
-        else:
-            groups.append(segment)
-            counter = 0
+        segment = num_depth[counter-1] + num_depth + num_depth[counter+1]
+        groups.append(segment)
+        counter += 1
     break
 
 print(groups)
-print(segment)
-
-# test for git
