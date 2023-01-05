@@ -6,3 +6,6 @@ for line in lines:
     for char in line:
         if char == 'A':
             print(f'There is an A.')
+
+
+# Testing
