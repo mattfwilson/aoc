@@ -20,3 +20,5 @@ for line in lines:
             
 print(f'Current Group Total: {total}')
 print(f'Highest Calories: {highest}')
+
+# Test
