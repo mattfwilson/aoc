@@ -1,5 +1,5 @@
 split_lst = []
-
+count = 0 
 with open('inputs.txt', 'r') as file:
     lines = file.readlines()
 
@@ -8,11 +8,13 @@ for line in lines:
 
 for item in split_lst:
     print(item)
-    for char in lst:
-        if char == 'A' or char == 'X':
-            split_lst.replace(char, 1)
-        if char == 'B' or char == 'Y':
-            split_lst.replace(char, 2)
-        if char == 'C' or char == 'Z':
-            split_lst.replace(char, 3)
+    count += 1
 
+print(count)
+    # for char in split_lst:
+    #     if char == 'A' or char == 'X':
+    #         split_lst.replace(char, 1)
+    #     if char == 'B' or char == 'Y':
+    #         split_lst.replace(char, 2)
+    #     if char == 'C' or char == 'Z':
+    #         split_lst.replace(char, 3)
