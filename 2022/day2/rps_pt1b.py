@@ -17,16 +17,22 @@ for item in split_lst:
 
     if item[0] == 'A':
         item[0] = 1
+        rock += 1
     if item[0] == 'B':
         item[0] = 2
+        paper += 1
     if item[0] == 'C':
         item[0] = 3
+        scissors += 1
     if item[1] == 'X':
         item[1] = 1
+        rock += 1
     if item[1] == 'Y':
         item[1] = 2
+        paper += 1
     if item[1] == 'Z':
         item[1] = 3
+        scissors += 1
 
     if (item[0] + 1) % 3 == item[1]:
         print(f'You lost.')
@@ -40,5 +46,8 @@ for item in split_lst:
         wins += 3
 
 print(split_lst)
-print(f'Wins: {wins}')
-print(f'Losses: {losses}')
+print(f'\nWins: {wins}')
+print(f'Losses: {losses}\n')
+print(f'Rock: {rock}')
+print(f'Paper: {paper}')
+print(f'Scissors: {scissors}\n')
