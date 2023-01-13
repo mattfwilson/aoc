@@ -1,17 +1,13 @@
-res_lst = []
-count = 0 
+results = []
 player_wins = 0
-comp_wins = 0
 
 with open('inputs.txt', 'r') as file:
     lines = file.readlines()
 
 for line in lines:
-    res_lst.append(line.strip().split(' '))
+    results.append(line.strip().split(' '))
 
-for item in res_lst:
-    count += 1
-
+for item in results:
     if item[0] == 'A':
         item[0] = 1
     if item[0] == 'B':
@@ -25,17 +21,18 @@ for item in res_lst:
     if item[1] == 'Z':
         item[1] = 3
 
+for item in results:
     if (item[0] + 1) % 3 == item[1]:
-        comp_wins += 1
+        player_wins += item[1]
         print(f'Computer wins.')
     elif (item[1] + 1) % 3 == item[0]:
         player_wins += 6
         player_wins += item[1]
-        print(f'Computer wins.')
+        print(f'Player wins.')
     else:
         player_wins += 3
+        player_wins += item[1]
         print('It was a tie.')
 
-print(res_lst)
+print(results)
 print(f'\nPlayer Wins: {player_wins}')
-print(f'Computer Wins: {comp_wins}\n')
