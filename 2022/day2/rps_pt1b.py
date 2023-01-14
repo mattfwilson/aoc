@@ -1,5 +1,6 @@
 results = []
 player_wins = 0
+shape_points = 0
 
 with open('inputs.txt', 'r') as file:
     lines = file.readlines()
@@ -23,16 +24,17 @@ for item in results:
 
 for item in results:
     if (item[0] + 1) % 3 == item[1]:
-        player_wins += item[1]
+        shape_points += item[1]
         print(f'Computer wins.')
     elif (item[1] + 1) % 3 == item[0]:
         player_wins += 6
-        player_wins += item[1]
+        shape_points += item[1]
         print(f'Player wins.')
     else:
         player_wins += 3
-        player_wins += item[1]
+        shape_points += item[1]
         print('It was a tie.')
 
 print(results)
-print(f'\nPlayer Wins: {player_wins}')
+print(f'\nShape points: {shape_points}')
+print(f'Player Wins: {player_wins}')
