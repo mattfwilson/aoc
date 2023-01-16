@@ -1,5 +1,5 @@
 results = []
-player_wins = 0
+player_score = 0
 shape_points = 0
 
 with open('inputs.txt', 'r') as file:
@@ -24,20 +24,15 @@ for item in results:
 
 for item in results:
     if (item[0] + 1) % 3 == item[1]:
-        shape_points += item[1]
         print(f'Computer wins.')
     elif (item[1] + 1) % 3 == item[0]:
-        player_wins += 6
-        shape_points += item[1]
+        player_score += 6
+        player_score += item[1]
         print(f'Player wins.')
     else:
-        player_wins += 3
-        shape_points += item[1]
+        player_score += 3
+        player_score += item[1]
         print('It was a tie.')
 
-total = shape_points + player_wins
-
 print(results)
-print(f'\nShape points: {shape_points}')
-print(f'Player Wins: {player_wins}')
-print(f'Total points: {total}')
+print(f'Player Wins: {player_score}')
