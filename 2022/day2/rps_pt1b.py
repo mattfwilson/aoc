@@ -35,6 +35,9 @@ for item in results:
         shape_points += item[1]
         print('It was a tie.')
 
+total = shape_points + player_wins
+
 print(results)
 print(f'\nShape points: {shape_points}')
 print(f'Player Wins: {player_wins}')
+print(f'Total points: {total}')
