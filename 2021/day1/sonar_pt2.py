@@ -14,21 +14,24 @@ print(input_lst)
 
 for depth in input_lst:
     try:
-        segment = 0
-        segment = input_lst[count] + input_lst[count + 1] + input_lst[count + 2]
+        total_seg = 0
+        total_seg = input_lst[count] + input_lst[count + 1] + input_lst[count + 2]
         count += 1
-        segment_lst.append(segment)
+        segment_lst.append(total_seg)
     except IndexError:
-        pass
+        print('Hit an IndexError')
     finally:
-        if segment > current:
-            current = segment
-            increases += 1
-            print(f'{segment} INCREASED!')
-        else:
-            current = segment
-            decreases += 1
-            print(f'{segment} decreased!')
+        pass
+
+for segment in segment_lst:
+    if segment > current:
+        current = segment
+        increases += 1
+        print(f'{segment} INCREASED!')
+    if segment <= current:
+        current = segment
+        decreases += 1
+        print(f'{segment} decreased!')
 
 print(f'Increases: {increases}')
 print(f'Decreases: {decreases}') 
