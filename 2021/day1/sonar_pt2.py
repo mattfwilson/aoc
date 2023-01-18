@@ -1,8 +1,9 @@
+import emoji
+
 input_lst = []
 segment_lst = []
 count = 0
 increases = 0
-decreases = 0
 current = 157
 
 with open('inputs.txt', 'r') as file:
@@ -23,18 +24,16 @@ for depth in input_lst:
     finally:
         pass
 
-for segment in segment_lst:
+for i, segment in enumerate(segment_lst):
     if segment > current:
         current = segment
         increases += 1
-        print(f'{segment} INCREASED!')
+        print(emoji.emojize(f'Index: {i} - {segment} :chart_increasing:'))
     if segment <= current:
         current = segment
-        decreases += 1
-        print(f'{segment} decreased!')
+        print(emoji.emojize(f'Index: {i} - {segment} :chart_decreasing:'))
 
-print(f'Increases: {increases}')
-print(f'Decreases: {decreases}') 
+print(f'\nIncreases: {increases}')
         
 
 
