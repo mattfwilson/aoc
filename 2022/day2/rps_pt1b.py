@@ -24,6 +24,7 @@ for item in results:
 
 for item in results:
     if (item[0] + 1) % 3 == item[1]:
+        player_score += item[1]
         print(f'Computer wins.')
     elif (item[1] + 1) % 3 == item[0]:
         player_score += 6
