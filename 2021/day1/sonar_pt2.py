@@ -9,20 +9,15 @@ current = 157
 with open('inputs.txt', 'r') as file:
     depths = file.readlines()
 
-for line in depths:
-    input_lst.append(int(line.strip()))
-print(input_lst)
-
-for depth in input_lst:
+for depth in depths:
+    input_lst.append(int(depth.strip()))
     try:
         total_seg = 0
         total_seg = input_lst[count] + input_lst[count + 1] + input_lst[count + 2]
         count += 1
         segment_lst.append(total_seg)
     except IndexError:
-        print('Hit an IndexError')
-    finally:
-        pass
+        print('Hit IndexError (cannot sum indexes further')
 
 for i, segment in enumerate(segment_lst):
     if segment > current:
@@ -33,7 +28,8 @@ for i, segment in enumerate(segment_lst):
         current = segment
         print(emoji.emojize(f'Index: {i} - {segment} :chart_decreasing:'))
 
-print(f'\nIncreases: {increases}')
+print(f'\nCounter: {count}')
+print(f'Increases: {increases}')
         
 
 
