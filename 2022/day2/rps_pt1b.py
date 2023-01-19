@@ -25,15 +25,16 @@ for item in results:
 for item in results:
     if (item[0] + 1) % 3 == item[1]:
         player_score += item[1]
-        print(f'Computer wins.')
+        print(f'Computer wins. Score +{item[1]}')
     elif (item[1] + 1) % 3 == item[0]:
         player_score += 6
         player_score += item[1]
-        print(f'Player wins.')
+        total_score = 6 + item[1]
+        print(f'Player wins. Score +{total_score}')
     else:
         player_score += 3
         player_score += item[1]
-        print('It was a tie.')
+        total_score = 3 + item[1]
+        print(f'Tie. Score +{total_score}')
 
-print(results)
-print(f'Player Wins: {player_score}')
+print(f'Player Score: {player_score}')
