@@ -19,14 +19,14 @@ for depth in depths:
     except IndexError:
         print('Hit IndexError (cannot sum indexes further')
 
-for i, segment in enumerate(segment_lst):
+for index, segment in enumerate(segment_lst):
     if segment > current:
         current = segment
         increases += 1
-        print(emoji.emojize(f'Index: {i} - {segment} :chart_increasing:'))
+        print(emoji.emojize(f'Index: {index} - {segment} :chart_increasing:'))
     if segment <= current:
         current = segment
-        print(emoji.emojize(f'Index: {i} - {segment} :chart_decreasing:'))
+        print(emoji.emojize(f'Index: {index} - {segment} :chart_decreasing:'))
 
 print(f'\nCounter: {count}')
 print(f'Increases: {increases}')
