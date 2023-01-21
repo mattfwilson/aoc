@@ -2,7 +2,7 @@ input_lst = []
 segment_lst = []
 counter = 0
 increases = 0
-current = 157
+current = 0
 
 with open('inputs.txt', 'r') as file:
     depths = file.readlines()
@@ -12,19 +12,19 @@ for depth in depths:
     try:
         total_seg = 0
         total_seg = input_lst[counter] + input_lst[counter + 1] + input_lst[counter + 2]
-        counter += 1
         segment_lst.append(total_seg)
+        counter += 1
     except IndexError:
-        print('Hit IndexError (cannot sum next three indexes')
+        print('Hit IndexError (cannot sum next three indexes)')
 
 for index, segment in enumerate(segment_lst):
     if segment > current:
         current = segment
         increases += 1
-        print(f'Index: {index} - {segment}')
+        print(f'Index: {index} -- Segment {segment} INCREASED')
     if segment <= current:
         current = segment
-        print(f'Index: {index} - {segment}')
+        print(f'Index: {index} -- Segment {segment} DECREASED')
 
 print(f'\nCounter: {counter}')
 print(f'Increases: {increases}')
