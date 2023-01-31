@@ -7,7 +7,7 @@ current = 157
 with open('inputs.txt', 'r') as file:
     depths = file.readlines()
 
-for depth in depths:
+for index, depth in enumerate(depths):
     input_lst.append(int(depth.strip()))
     try:
         total_seg = input_lst[counter] + input_lst[counter + 1] + input_lst[counter + 2]
@@ -28,7 +28,3 @@ for index, segment in enumerate(segment_lst):
 print(f'\nCounter: {counter}')
 print(f'Increases: {increases}')
         
-
-
-
-
