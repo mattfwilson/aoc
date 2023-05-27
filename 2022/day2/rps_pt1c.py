@@ -7,24 +7,20 @@ with open('inputs.txt', 'r') as file:
     for line in lines:
         inputs.append(line.strip().split(' '))
 
-def convert(pair):
-    if pair[0] == 'A':
-        pair[0] = 1
-    if pair[0] == 'B':
-        pair[0] = 2
-    if pair[0] == 'C':
-        pair[0] = 3
-    if pair[1] == 'X':
-        pair[1] = 1
-    if pair[1] == 'Y':
-        pair[1] = 2
-    if pair[1] == 'Z':
-        pair[1] = 3
-    
-for pair in inputs:
-    convert(pair)
-
 print(inputs)
+
+if inputs[0] == 'A':
+    inputs[0] = 1
+if inputs[0] == 'B':
+    inputs[0] = 2
+if inputs[0] == 'C':
+    inputs[0] = 3
+if inputs[1] == 'X':
+    inputs[1] = 1
+if inputs[1] == 'Y':
+    inputs[1] = 2
+if inputs[1] == 'Z':
+    inputs[1] = 3
 
 for item in inputs:
     if (item[0] + 1) % 3 == item[1]:
