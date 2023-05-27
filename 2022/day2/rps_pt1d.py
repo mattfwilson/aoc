@@ -1,4 +1,5 @@
 import numpy as np
+import sys
 
 inputs = []
 player_score = 0
@@ -6,32 +7,22 @@ shape_points = 0
 line_count = 0
 item_count = 0
 
-np_inputs = np.loadtxt('inputs.csv', delimiter=' ', dtype=str)
-for line in np_inputs:
+inputs = np.loadtxt('inputs.csv', delimiter=' ', dtype=str)
+for line in inputs:
     for item in line:
         item_count += 1
     line_count += 1
 print(f'Line count: {line_count}')
 print(f'Item_count: {item_count}')
 
-# def convert(pair):
-#     if pair[0] == 'A':
-#         pair[0] = 1
-#     if pair[0] == 'B':
-#         pair[0] = 2
-#     if pair[0] == 'C':
-#         pair[0] = 3
-#     if pair[1] == 'X':
-#         pair[1] = 1
-#     if pair[1] == 'Y':
-#         pair[1] = 2
-#     if pair[1] == 'Z':
-#         pair[1] = 3
-    
-# for pair in inputs:
-#     convert(pair)
-
-# print(inputs)
+A_convert = inputs[inputs == 'A'] = 1
+B_convert = inputs[inputs == 'B'] = 2
+C_convert = inputs[inputs == 'C'] = 3
+X_convert = inputs[inputs == 'X'] = 1
+Y_convert = inputs[inputs == 'Y'] = 2
+Z_convert = inputs[inputs == 'Z'] = 3
+np.set_printoptions(threshold=sys.maxsize)
+print(inputs)
 
 # for item in inputs:
 #     if (item[0] + 1) % 3 == item[1]:
