@@ -8,18 +8,10 @@ line_count = 0
 item_count = 0
 
 inputs = np.loadtxt('inputs.csv', delimiter=' ', dtype=str)
-for line in inputs:
-    for item in line:
-        item_count += 1
-    line_count += 1
-print(f'Line count: {line_count}')
-print(f'Item_count: {item_count}')
-
 inputs[(inputs == 'A') | (inputs == 'X')] = 1
 inputs[(inputs == 'B') | (inputs == 'Y')] = 2
 inputs[(inputs == 'C') | (inputs == 'Z')] = 3
 np.set_printoptions(threshold=sys.maxsize)
-
 int_inputs = np.int_(inputs)
 
 for item in int_inputs:
