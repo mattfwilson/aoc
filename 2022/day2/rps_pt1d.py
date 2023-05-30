@@ -1,29 +1,24 @@
-import numpy as np
-import sys
+map_input = {'A': 'Rock', 'B': 'Paper', 'C': 'Scissors', 'X': 'Rock', 'Y': 'Paper', 'Z': 'Scissors'}
+shape_pts = {'Rock': 1, 'Paper': 2, 'Scissors': 3}
+game_pts = {'Lose': 0, 'Draw': 3, 'Win': 6}
 
-player_score = 0
+with open('inputs.txt', 'r') as f:
+    lines = f.readlines()
+    rounds = [entry.strip(' ').replace(' ', '') for entry in lines]
 
-str_inputs = np.loadtxt('inputs.csv', delimiter=' ', dtype=str)
-np.set_printoptions(threshold=sys.maxsize)
+def points_per_round(throw):
+    opp_shape = map_input[throw[0]]
+    our_shape = map_input[throw[1]]
+    print(throw)
 
-str_inputs[(str_inputs == 'A') | (str_inputs == 'X')] = 1
-str_inputs[(str_inputs == 'B') | (str_inputs == 'Y')] = 2
-str_inputs[(str_inputs == 'C') | (str_inputs == 'Z')] = 3
-int_inputs = np.int_(str_inputs)
+    if opp_shape == our_shape:
+        return game_pts['Draw'] + shape_pts[our_shape]
+    elif (opp_shape, our_shape) in [('Paper', 'Rock'), ('Rock', 'Scissors'), ('Scissors', 'Paper')]:
+        return game_pts['Lose'] + shape_pts[our_shape]
+    else:
+        return game_pts['Win'] + shape_pts[our_shape]
 
-for throw in int_inputs:
-    if (throw[0] + 1) % 3 == throw[1]: # you lose
-        player_score += throw[0]
-        print(f'{throw} Computer wins. (+{throw[0]})')
-    elif (throw[1] + 1) % 3 == throw[0]: # you win
-        player_score += 6
-        player_score += throw[0]
-        total_score = 6 + throw[0]
-        print(f'{throw} Player wins. (+{total_score})')
-    elif throw[0] == throw[1]: # you tie
-        player_score += 3
-        player_score += throw[0]
-        total_score = 3 + throw[0]
-        print(f'{throw} Tie game. (+{total_score})')
-
-print(f'Player Score: {player_score}')
+total = 0
+for throw in rounds:
+    total += points_per_round(throw)
+print(total)
