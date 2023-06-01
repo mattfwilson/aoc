@@ -6,17 +6,25 @@ with open('inputs.txt', 'r') as file:
     lines = file.readlines()
     rounds = [entry.strip(' ').replace(' ', '').replace('\n', '') for entry in lines]
 
+def calc_outcome(opp_shape):    
+    if opp_shape == 'Rock':
+        pass
+    elif opp_shape == 'Scissors':
+        pass
+    else: 
+        pass
+
 def points_per_round(throw):
     opp_shape = map_input[throw[0]]
     our_shape = map_input[throw[1]]
     print(throw)
-    
-    if opp_shape == our_shape:
-        return game_pts['Draw'] + shape_pts[our_shape]
-    elif (opp_shape, our_shape) in [('Paper', 'Rock'), ('Rock', 'Scissors'), ('Scissors', 'Paper')]:
-        return game_pts['Lose'] + shape_pts[our_shape]
-    else:
-        return game_pts['Win'] + shape_pts[our_shape]
+       
+    if our_shape == 'X': # need to lose
+        calc_outcome()
+    elif our_shape == 'Y': # need to draw
+        calc_outcome()
+    else: # need to win
+        calc_outcome()
 
 total = 0
 for throw in rounds:
