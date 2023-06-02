@@ -27,7 +27,7 @@ def points_per_round(throw):
     else:
         calc_loss(our_shape)
 
-score = 0
 for throw in rounds:
+    score = 0
     score += points_per_round(throw)
 print(score)
