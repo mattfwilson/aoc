@@ -29,5 +29,5 @@ def points_per_round(throw):
 
 for throw in rounds:
     score = 0
-    score += points_per_round(throw)
+    score = points_per_round(throw)
 print(score)
