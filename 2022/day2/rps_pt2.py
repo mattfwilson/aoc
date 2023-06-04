@@ -7,28 +7,40 @@ with open('inputs.txt', 'r') as file:
     lines = file.readlines()
     rounds = [entry.strip(' ').replace(' ', '').replace('\n', '') for entry in lines]
 
-def calc_win(our_shape):    
-    return int(shape_pts.get(our_shape) + 6)
+def calc_win(opp_shape):    
+    if opp_shape == 'Rock':
+        return shape_pts.get('Paper') + 6
+    elif opp_shape == 'Paper':
+        return shape_pts.get('Scissors') + 6
+    elif opp_shape == 'Scissors':
+        return shape_pts.get('Rock') + 6
 
-def calc_draw(our_shape):
-    return int(shape_pts.get(our_shape) + 3)
+def calc_draw(opp_shape):
+    if opp_shape == 'Rock':
+        return shape_pts.get('Rock') + 1
+    elif opp_shape == 'Paper':
+        return shape_pts.get('Paper') + 1
+    elif opp_shape == 'Scissors':
+        return shape_pts.get('Scissors') + 1
 
-def calc_loss(our_shape):
-    return int(shape_pts.get(our_shape))
-    
+def calc_loss(opp_shape):
+    if opp_shape == 'Rock':
+        return shape_pts.get('Scissors')
+    elif opp_shape == 'Paper':
+        return shape_pts.get('Rock')
+    elif opp_shape == 'Scissors':
+        return shape_pts.get('Paper')
+
 def points_per_round(throw):
     opp_shape = map_input[throw[0]]
     our_shape = map_input[throw[1]]
-    print(shape_pts.get(our_shape))
-    return our_shape
     
-for throw in rounds:
-    points_per_round(throw)
-
     if our_shape == 'X':
-        calc_win(our_shape)
+        calc_win(opp_shape)
     elif our_shape == 'Y':
         calc_draw(our_shape)
     else:
         calc_loss(our_shape)
 
+score = sum([points_per_round(throw) for throw in rounds])
+print(score)
