@@ -45,6 +45,9 @@ def points_per_round(throw):
     else:
         calc_loss(opp_shape)
 
+print('Before loop')
 for throw in rounds:
     score = sum(points_per_round(throw))
 print(score)
+
+print('End of file, lol')
