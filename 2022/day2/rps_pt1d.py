@@ -10,7 +10,7 @@ def points_per_round(throw):
     opp_shape = map_input[throw[0]]
     our_shape = map_input[throw[1]]
     print(throw)
-    
+
     if opp_shape == our_shape:
         return game_pts['Draw'] + shape_pts[our_shape]
     elif (opp_shape, our_shape) in [('Paper', 'Rock'), ('Rock', 'Scissors'), ('Scissors', 'Paper')]:
