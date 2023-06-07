@@ -8,19 +8,19 @@ with open('inputs.txt', 'r') as file:
 
 def calc_win(opp_shape):
     if opp_shape == 'rock':
-        return shape_pts.get('paper') + 6
+        return shape_pts.get('paper') + game_pts.get('win')
     elif opp_shape == 'paper':
-        return shape_pts.get('scissors') + 6
+        return shape_pts.get('scissors') + game_pts.get('win')
     else:
-        return shape_pts.get('rock') + 6
+        return shape_pts.get('rock') + game_pts.get('win')
 
 def calc_draw(opp_shape):
     if opp_shape == 'rock':
-        return shape_pts.get('rock') + 3
+        return shape_pts.get('rock') + game_pts.get('draw')
     elif opp_shape == 'paper':
-        return shape_pts.get('paper') + 3
+        return shape_pts.get('paper') + game_pts.get('draw')
     else:
-        return shape_pts.get('scissors') + 3
+        return shape_pts.get('scissors') + game_pts.get('draw')
 
 def calc_loss(opp_shape):
     if opp_shape == 'rock':
