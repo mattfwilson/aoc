@@ -16,11 +16,11 @@ def calc_win(opp_shape):
 
 def calc_draw(opp_shape):
     if opp_shape == 'rock':
-        return shape_pts.get('rock') + 1
+        return shape_pts.get('rock') + 3
     elif opp_shape == 'paper':
-        return shape_pts.get('paper') + 1
+        return shape_pts.get('paper') + 3
     else:
-        return shape_pts.get('scissors') + 1
+        return shape_pts.get('scissors') + 3
 
 def calc_loss(opp_shape):
     if opp_shape == 'rock':
