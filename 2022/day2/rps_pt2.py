@@ -1,7 +1,7 @@
 map_input = {'A': 'rock', 'B': 'paper', 'C': 'scissors', 'X': 'rock', 'Y': 'paper', 'Z': 'scissors'}
 shape_pts = {'rock': 1, 'paper': 2, 'scissors': 3}
 game_pts = {'lose': 0, 'draw': 3, 'win': 6} 
-
+# test
 with open('inputs.txt', 'r') as file:
     lines = file.readlines()
     rounds = [entry.strip(' ').replace(' ', '').replace('\n', '') for entry in lines]
