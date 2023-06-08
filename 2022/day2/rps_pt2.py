@@ -30,10 +30,10 @@ def calc_loss(opp_shape):
     else:
         return shape_pts.get('paper')
 
-def points_per_round(shapes, score):
+def points_per_round(shapes):
     opp_shape = map_input[shapes[0]]
     our_shape = map_input[shapes[1]]
-    print(f'{opp_shape} vs {our_shape}') 
+    print(f'{opp_shape} ({shapes[0]}) vs {our_shape} ({shapes[1]})') 
 
     if our_shape == 'X':
         return calc_loss(opp_shape)
@@ -44,6 +44,7 @@ def points_per_round(shapes, score):
 
 score = 0
 for shapes in rounds:
-    score += points_per_round(shapes, score)
+    score += points_per_round(shapes)
+    print(score)
 print(f'Your score: {score}')
-# test
+
