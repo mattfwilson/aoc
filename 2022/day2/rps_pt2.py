@@ -1,7 +1,7 @@
 map_input = {'A': 'rock', 'B': 'paper', 'C': 'scissors', 'X': 'rock', 'Y': 'paper', 'Z': 'scissors'}
 shape_pts = {'rock': 1, 'paper': 2, 'scissors': 3}
 game_pts = {'lose': 0, 'draw': 3, 'win': 6} 
-# test
+
 with open('inputs.txt', 'r') as file:
     lines = file.readlines()
     rounds = [entry.strip(' ').replace(' ', '').replace('\n', '') for entry in lines]
@@ -36,17 +36,20 @@ def points_per_round(shapes):
     print(f'{opp_shape} ({shapes[0]}) vs {our_shape} ({shapes[1]})') 
 
     if our_shape == 'X':
-        return calc_loss(opp_shape)
+        return int(calc_loss(opp_shape))
     elif our_shape == 'Y':
-        return calc_draw(opp_shape)
+        return int(calc_draw(opp_shape))
     else:
-        return calc_win(opp_shape)
+        return int(calc_win(opp_shape))
 
 score = 0
 count = 0
+accrued = []
 for shapes in rounds:
     score += points_per_round(shapes)
+    accrued.append(score)
+    delta = accrued[count] - accrued[count - 1]
+    print(f'Points: {score} - Delta: {delta} \n')
     count += 1
-    print(score)
 print(f'Your score: {score}')
 print(f'Total rounds: {count}')
