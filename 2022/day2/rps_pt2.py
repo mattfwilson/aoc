@@ -43,8 +43,10 @@ def points_per_round(shapes):
         return calc_win(opp_shape)
 
 score = 0
+count = 0
 for shapes in rounds:
     score += points_per_round(shapes)
+    count += 1
     print(score)
 print(f'Your score: {score}')
-
+print(f'Total rounds: {count}')
