@@ -55,6 +55,7 @@ for shapes in rounds:
     accrued.append(total)
     delta = accrued[count] - accrued[count - 1]
     assert delta <= 9
+    print(f'Iteration: {count}')
     print(f'Points: {total} - Delta: {delta} \n')
     count += 1
 
