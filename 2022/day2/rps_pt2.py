@@ -7,6 +7,7 @@ with open('inputs.txt', 'r') as file:
     rounds = [entry.strip(' ').replace(' ', '').replace('\n', '') for entry in lines]
 
 def calc_win(opp_shape):
+    print('You win.')
     if opp_shape == 'rock':
         return shape_pts.get('paper') + game_pts.get('win')
     elif opp_shape == 'paper':
@@ -15,6 +16,7 @@ def calc_win(opp_shape):
         return shape_pts.get('rock') + game_pts.get('win')
 
 def calc_draw(opp_shape):
+    print('Draw.')
     if opp_shape == 'rock':
         return shape_pts.get('rock') + game_pts.get('draw')
     elif opp_shape == 'paper':
@@ -23,6 +25,7 @@ def calc_draw(opp_shape):
         return shape_pts.get('scissors') + game_pts.get('draw')
 
 def calc_loss(opp_shape):
+    print('You lost')
     if opp_shape == 'rock':
         return shape_pts.get('scissors')
     elif opp_shape == 'paper':
@@ -35,21 +38,26 @@ def points_per_round(shapes):
     our_shape = map_input[shapes[1]]
     print(f'{opp_shape} ({shapes[0]}) vs {our_shape} ({shapes[1]})') 
 
+    result = 0
     if our_shape == 'X':
-        return int(calc_loss(opp_shape))
+        result = calc_loss(opp_shape)
     elif our_shape == 'Y':
-        return int(calc_draw(opp_shape))
+        result = calc_draw(opp_shape)
     else:
-        return int(calc_win(opp_shape))
+        result = calc_win(opp_shape)
+    return result
 
-score = 0
+total = 0
 count = 0
 accrued = []
 for shapes in rounds:
-    score += points_per_round(shapes)
-    accrued.append(score)
+    total += points_per_round(shapes)
+    accrued.append(total)
     delta = accrued[count] - accrued[count - 1]
-    print(f'Points: {score} - Delta: {delta} \n')
+    assert delta <= 9
+    print(f'Points: {total} - Delta: {delta} \n')
     count += 1
-print(f'Your score: {score}')
+
+print(f'Your score: {total}')
 print(f'Total rounds: {count}')
+print(f'Avg. pts per round: {total / count}')
