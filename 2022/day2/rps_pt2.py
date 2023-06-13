@@ -33,10 +33,10 @@ def calc_loss(opp_shape):
     else:
         return shape_pts.get('paper')
 
-def points_per_round(shapes):
-    opp_shape = map_input[shapes[0]]
-    our_shape = map_input[shapes[1]]
-    print(f'{opp_shape} ({shapes[0]}) vs {our_shape} ({shapes[1]})') 
+def points_per_round(throw):
+    opp_shape = map_input[throw[0]]
+    our_shape = map_input[throw[1]]
+    print(f'{opp_shape} ({throw[0]}) vs {our_shape} ({throw[1]})') 
 
     result = 0
     if our_shape == 'X':
@@ -50,8 +50,8 @@ def points_per_round(shapes):
 total = 0
 count = 0
 accrued = []
-for shapes in rounds:
-    total += points_per_round(shapes)
+for throw in rounds:
+    total += points_per_round(throw)
     accrued.append(total)
     delta = accrued[count] - accrued[count - 1]
     assert delta <= 9
