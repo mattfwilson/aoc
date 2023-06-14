@@ -1,6 +1,9 @@
 map_input = {'A': 'rock', 'B': 'paper', 'C': 'scissors', 'X': 'rock', 'Y': 'paper', 'Z': 'scissors'}
 shape_pts = {'rock': 1, 'paper': 2, 'scissors': 3}
 game_pts = {'lose': 0, 'draw': 3, 'win': 6} 
+wins = 0
+losses = 0
+draws = 0
 
 with open('inputs.txt', 'r') as file:
     lines = file.readlines()
@@ -41,11 +44,13 @@ def points_per_round(shapes):
     result = 0
     if our_shape == 'X':
         result = calc_loss(opp_shape)
+        return result
     elif our_shape == 'Y':
         result = calc_draw(opp_shape)
+        return result    
     else:
         result = calc_win(opp_shape)
-    return result
+        return result
 
 total = 0
 count = 0
