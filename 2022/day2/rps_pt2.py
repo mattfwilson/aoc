@@ -1,9 +1,6 @@
 map_input = {'A': 'rock', 'B': 'paper', 'C': 'scissors', 'X': 'rock', 'Y': 'paper', 'Z': 'scissors'}
 shape_pts = {'rock': 1, 'paper': 2, 'scissors': 3}
 game_pts = {'lose': 0, 'draw': 3, 'win': 6} 
-wins = 0
-losses = 0
-draws = 0
 
 with open('inputs.txt', 'r') as file:
     lines = file.readlines()
