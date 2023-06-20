@@ -25,7 +25,7 @@ def calc_draw(opp_shape):
         return shape_pts.get('scissors') + game_pts.get('draw')
 
 def calc_loss(opp_shape):
-    print('You lost')
+    print('You lose.')
     if opp_shape == 'rock':
         return shape_pts.get('scissors')
     elif opp_shape == 'paper':
@@ -44,7 +44,7 @@ def points_per_round(throw):
         return result
     elif our_shape == 'Y':
         result = calc_draw(opp_shape)
-        return result    
+        return result
     else:
         result = calc_win(opp_shape)
         return result
