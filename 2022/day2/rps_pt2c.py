@@ -8,33 +8,30 @@ with open('inputs.txt', 'r') as file:
 
 def calc_win(opp_shape):
     print('You win.')
-    match opp_shape:
-        case 'rock':
-            return shape_pts.get('paper') + game_pts.get('win')
-        case 'paper':
-            return shape_pts.get('scissors') + game_pts.get('win')
-        case 'scissors':
-            return shape_pts.get('rock') + game_pts.get('win')
+    if opp_shape == 'rock':
+        return shape_pts.get('paper') + game_pts.get('win')
+    elif opp_shape == 'paper':
+        return shape_pts.get('scissors') + game_pts.get('win')
+    else:
+        return shape_pts.get('rock') + game_pts.get('win')
 
 def calc_draw(opp_shape):
     print('Draw.')
-    match opp_shape:
-        case 'rock':
-            return shape_pts.get('rock') + game_pts.get('draw')
-        case 'paper':
-            return shape_pts.get('paper') + game_pts.get('draw')
-        case 'scissors':
-            return shape_pts.get('scissors') + game_pts.get('draw')
+    if opp_shape == 'rock':
+        return shape_pts.get('rock') + game_pts.get('draw')
+    elif opp_shape == 'paper':
+        return shape_pts.get('paper') + game_pts.get('draw')
+    else:
+        return shape_pts.get('scissors') + game_pts.get('draw')
 
 def calc_loss(opp_shape):
     print('You lose.')
-    match opp_shape:
-        case 'rock':
-            return shape_pts.get('scissors')
-        case 'paper':
-            return shape_pts.get('rock')
-        case 'scissors':
-            return shape_pts.get('paper')
+    if opp_shape == 'rock':
+        return shape_pts.get('scissors')
+    elif opp_shape == 'paper':
+        return shape_pts.get('rock')
+    else:
+        return shape_pts.get('paper')
 
 def points_per_round(throw):
     opp_shape = map_input[throw[0]]
@@ -42,16 +39,15 @@ def points_per_round(throw):
     print(f'{opp_shape} ({throw[0]}) vs {our_shape} ({throw[1]})') 
 
     result = 0
-    match our_shape:
-        case 'X':
-            result = calc_loss(opp_shape)
-            return result
-        case 'Y':
-            result = calc_draw(opp_shape)
-            return result
-        case 'Z':
-            result = calc_win(opp_shape)
-            return result
+    if our_shape == 'X':
+        result = calc_loss(opp_shape)
+        return result
+    elif our_shape == 'Y':
+        result = calc_draw(opp_shape)
+        return result
+    else:
+        result = calc_win(opp_shape)
+        return result
 
 total = 0
 count = 0
