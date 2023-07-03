@@ -46,4 +46,3 @@ score = 0
 for shapes in rounds:
     score += points_per_round(shapes, score)
 print(f'Your score: {score}')
-# test
