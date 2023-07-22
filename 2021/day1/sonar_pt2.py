@@ -21,7 +21,7 @@ for index, segment in enumerate(segment_lst):
         current = segment
         increases += 1
         print(f'Index: {index} -- Segment {segment} UP')
-    if segment <= current:
+    elif segment <= current:
         current = segment
         print(f'Index: {index} -- Segment {segment} DOWN')
 
