@@ -14,12 +14,12 @@ for index, depth in enumerate(depths):
         segments.append(total_seg)
         counter += 1
     except IndexError:
-        print('Hit IndexError (cannot sum next three indexes)')
+        print('Except statement reached (IndexError: cannot sum next three indexes)')
     finally:
-        print('Finally activated.')
+        print('Finally statement reached.')
 
 
-for index, segment in enumerate(segments):
+for segment in segments:
     if segment > current:
         current = segment
         increases += 1
@@ -31,4 +31,3 @@ for index, segment in enumerate(segments):
 print(f'\nList length: {len(inputs)}')
 print(f'Counter: {counter}')
 print(f'Increases: {increases}')
-        
