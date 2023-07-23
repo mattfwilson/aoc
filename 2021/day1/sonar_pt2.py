@@ -18,8 +18,7 @@ for index, depth in enumerate(depths):
     finally:
         print('Finally statement reached.')
 
-
-for segment in segments:
+for index, segment in enumerate(segments):
     if segment > current:
         current = segment
         increases += 1
