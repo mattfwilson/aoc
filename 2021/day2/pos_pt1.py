@@ -8,7 +8,9 @@ with open('inputs.txt', 'r') as file:
 for pair in inputs:
     pair[1] = int(pair[1])
 
-def move_sub(direction, forwards, up_down):
+def move_sub(direction):
+    global forwards
+    global up_down
     if direction[0] == 'forward':
         forwards += direction[1]
         print(forwards)
@@ -23,7 +25,7 @@ def move_sub(direction, forwards, up_down):
         return up_down
 
 for direction in inputs:
-    move_sub(direction, forwards, up_down)
+    move_sub(direction)
     
 print(forwards)
 print(up_down)

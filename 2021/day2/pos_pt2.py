@@ -1,5 +1,5 @@
 forwards = 0
-up_down = 0
+depth = 0
 aim = 0
 
 with open('inputs.txt', 'r') as file:
@@ -9,29 +9,38 @@ with open('inputs.txt', 'r') as file:
 for pair in inputs:
     pair[1] = int(pair[1])
 
-def move_down(direction, up_down):
-    up_down += direction[1]
+def move_down(direction):
+    global depth
+    global aim
+    depth += direction[1]
     aim += direction[1]
-    print(up_down)
-    return up_down
+    print(depth)
+    return depth
 
-def move_up(direction, up_down):
-    up_down -= direction[1]
+def move_up(direction):
+    global depth
+    global aim
+    depth -= direction[1]
     aim -= direction[1]
-    print(up_down)
-    return up_down
+    print(depth)
+    return depth
 
-def move_forward(direction, forwards, up_down):
+def move_forward(direction):
+    global depth
+    global forwards
+    global aim
     forwards += direction[1]
-    up_down += aim * direction[1]
+    depth += aim * direction[1]
     print(forwards)
     return forwards
 
 for direction in inputs:
-    move_sub(direction, forwards, up_down)
-    
-print(forwards)
-print(up_down)
+    if direction[0] == 'down':
+        move_down(direction)
+    elif direction[0] == 'up':
+       move_up(direction)
+    else:
+        move_forward(direction)
 
-position = forwards * up_down
-print(position)
+final_pos = forwards * depth
+print(final_pos)
