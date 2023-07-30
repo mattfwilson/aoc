@@ -1,12 +1,9 @@
-inputs = []
 digits = []
 gamma_lst = []
 epsilon_lst = []
 counter = 0
 
-with open('inputs.txt', 'r') as file:
-    imported = file.readlines()
-    stripped = [line.replace('\n', '').split(' ') for line in imported]
+inputs = [line for line in open('inputs.txt').read().strip().split('\n')]
 
 def to_decimal(binary_string):
     decimal = 0
@@ -19,15 +16,12 @@ def to_decimal(binary_string):
 
     return decimal
 
-for item in stripped:
-    inputs.append(item[0])
-
-while counter < 12:
+while counter < len(inputs[0]):
     for binary in inputs:
         digits.append(binary[counter])
     zeroes = digits.count('0')
     ones = digits.count('1')
-    print(f'Zeroes: {zeroes}, Ones: {ones}')
+    print(f'Zeroes: {zeroes} | Ones: {ones}')
     
     if zeroes > ones:
         gamma_lst.append('0')
