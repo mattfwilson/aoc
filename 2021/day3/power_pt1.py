@@ -29,6 +29,7 @@ while index < len(inputs[0]):
     else:
         gamma_lst.append('1')
         epsilon_lst.append('0')
+    digits.clear()
     index += 1
 
 gamma_binary = ''.join(gamma_lst)
