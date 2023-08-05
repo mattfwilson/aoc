@@ -12,15 +12,15 @@ def oxygen_rating(inputs, index):
         for bit in binary:
             oxygen_lst.append(bit)
         most_common = max(oxygen_lst)
-        ones = oxygen_lst.count('0')
-        zeroes = oxygen_lst.count('1')
+#        ones = oxygen_lst.count('0')
+#        zeroes = oxygen_lst.count('1')
     for binary in inputs:
         if binary[index] == most_common:
             keep_lst.append(binary)
-    return most_common, ones, zeroes
+    return most_common
 
 res_lst.append(oxygen_rating(inputs, index))
-print(res_lst)
 print(keep_lst)
-print(len(keep_lst))
+print(f'Len keep_lst: {len(keep_lst)}')
+print(f'Len inputs: {len(inputs)}')
 index += 1
