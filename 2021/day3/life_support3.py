@@ -9,8 +9,8 @@ least_common = 0
 def calc_most_common(inputs, scrubber, bit_lst, index):
     for binary in inputs:
         bit_lst.append(int(binary[index]))
-    most = max(set(bit_lst), key=bit_lst.count)
-    return most
+    most_common = max(set(bit_lst), key=bit_lst.count)
+    return most_common
 
 def calc_ratings(keep_lst, most_common, least_common, index):
     for num in keep_lst:
