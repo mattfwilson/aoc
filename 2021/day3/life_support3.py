@@ -3,8 +3,8 @@ oxygen = []
 scrubber = []
 bit_lst = []
 index = 0
-most_common = 0
-least_common = 0
+most_common = ''
+least_common = ''
 
 def calc_most_common(inputs, index):
     for binary in inputs:
