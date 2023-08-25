@@ -20,6 +20,9 @@ def calc_ratings(keep_lst, most_common, least_common, index):
             scrubber.append(num)
     return oxygen, scrubber
 
+print(inputs)
+print(len(inputs))
+
 while index <= len(inputs[0]) - 1:
     most_common = calc_most_common(inputs, index)
     ratings = calc_ratings(inputs, most_common, least_common, index)
