@@ -22,6 +22,7 @@ def calc_ratings(keep_lst, most_common, least_common, index):
 
 print(inputs)
 print(len(inputs))
+print(type(inputs))
 
 while index <= len(inputs[0]) - 1:
     most_common = calc_most_common(inputs, index)
