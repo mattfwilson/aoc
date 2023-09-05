@@ -12,11 +12,11 @@ def calc_most_common(inputs, index):
     most_common = max(set(bit_lst), key=bit_lst.count)
     return most_common
 
-def calc_ratings(keep_lst, most_common, least_common, index):
-    for num in keep_lst:
+def calc_ratings(inputs, most_common, least_common, index):
+    for num in inputs:
         if num[index] == most_common:
             oxygen.append(num)
-        elif num[index] == least_common:
+        else:
             scrubber.append(num)
     return oxygen, scrubber
 
