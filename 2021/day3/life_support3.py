@@ -20,9 +20,7 @@ def calc_ratings(keep_lst, most_common, least_common, index):
             scrubber.append(num)
     return oxygen, scrubber
 
-print(inputs)
 print(len(inputs))
-print(type(inputs))
 for i in inputs:
     print(f'{i} - {type(i)}')
 
@@ -31,7 +29,6 @@ while index <= len(inputs[0]) - 1:
     ratings = calc_ratings(inputs, most_common, least_common, index)
     print(f'most common: {most_common}')
     print(f'ratings: {len(ratings[0])} / {len(ratings[1])}')
-    # bit_lst.clear()
     index += 1
 
 print(f'Reached end of script')
