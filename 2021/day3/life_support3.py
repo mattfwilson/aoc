@@ -29,6 +29,7 @@ while index <= len(inputs[0]) - 1:
     ratings = calc_ratings(inputs, most_common, least_common, index)
     print(f'most common: {most_common}')
     print(f'ratings: {len(ratings[0])} / {len(ratings[1])}')
+    bit_lst.clear()
     index += 1
 
 print(f'Reached end of script')
