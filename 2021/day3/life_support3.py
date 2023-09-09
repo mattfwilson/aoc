@@ -3,8 +3,8 @@ oxygen = []
 scrubber = []
 bit_lst = []
 index = 0
-most_common = str()
-least_common = str()
+most_common = ''
+least_common = ''
 
 def calc_most_common(inputs, index):
     for binary in inputs:
@@ -12,15 +12,15 @@ def calc_most_common(inputs, index):
     most_common = max(set(bit_lst), key=bit_lst.count)
     return most_common
 
-def calc_ratings(inputs, most_common, least_common, index):
-    for num in inputs:
+def calc_ratings(keep_lst, most_common, least_common, index):
+    for num in keep_lst:
         if num[index] == most_common:
             oxygen.append(num)
-        else:
+        elif num[index] == least_common:
             scrubber.append(num)
     return oxygen, scrubber
 
-print(len(inputs))
+print(type(inputs))
 for i in inputs:
     print(f'{i} - {type(i)}')
 
