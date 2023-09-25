@@ -16,7 +16,7 @@ def calc_ratings(keep_lst, most_common, least_common, index):
     for num in keep_lst:
         if num[index] == most_common:
             oxygen.append(num)
-        elif num[index] == least_common:
+        else:
             scrubber.append(num)
     return oxygen, scrubber
 
