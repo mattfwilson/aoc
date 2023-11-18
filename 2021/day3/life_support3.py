@@ -22,12 +22,10 @@ def calc_oxygen(inputs, oxygen, scrubber, most_common, index):
         index += 1
     return oxygen, scrubber
 
-most_common = calc_most_common(inputs, index)
-oxygen = calc_oxygen(inputs, oxygen, scrubber, most_common, index)
+while index < len(inputs[0]):
+    most_common = calc_most_common(inputs, index)
+#    oxygen = calc_oxygen(inputs, oxygen, scrubber, most_common, index)
+    print(f'Most common in index {index}: {most_common}')
+    index += 1
 
-print(f'most common: {most_common}')
-print(f'oxygen: {oxygen} - len: {len(oxygen)}')
-print(f'scrubber: {scrubber} - {len(scrubber)}')
-
-print(oxygen)
 print(f'Reached end of script')
