@@ -1,11 +1,11 @@
 inputs = [line for line in open('inputs.txt').read().strip().split('\n')]
 input_lst = [line for line in inputs]
 output_lst = []
-
-#str_digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
-#spelled_digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+stripped_digits = []
+calibration = []
 
 digits_dict = {
+        'zero': '0',
         'one': '1',
         'two': '2',
         'three': '3',
@@ -25,12 +25,12 @@ def replace_digits(input_lst, output_lst, digits_dict):
         output_lst.append(line)
 
 replace_digits(input_lst, output_lst, digits_dict)
-for i in output_lst:
-    print(i)
 
-#word = 'zoneight234'
-#
-#for key, value in digits_dict.items():
-#    if key in word:
-#        word = word.replace(key, digits_dict[key])
-#print(word)
+for line in output_lst:
+    stripped_digits.append([char for char in line if char in digits_dict.values()])
+
+for line in stripped_digits:
+    calibration.append(int(line[0] + line[-1]))
+
+print(calibration)
+print(f'Sum: {sum(calibration)}')
