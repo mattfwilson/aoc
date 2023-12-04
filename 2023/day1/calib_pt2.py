@@ -17,20 +17,20 @@ digits_dict = {
         'nine': '9'
     }
 
-def replace_digits(input_lst, output_lst, digits_dict):
-    for line in input_lst:
-        for key, val in digits_dict.items():
-            while key in line:
-                line = line.replace(key, digits_dict[key])
-        output_lst.append(line)
-
-replace_digits(input_lst, output_lst, digits_dict)
-for i in output_lst:
-    print(i)
-
-#word = 'zoneight234'
+#def replace_digits(input_lst, output_lst, digits_dict):
+#    for line in input_lst:
+#        for digit in digits_dict.keys():
+#            print(digit_dict_keys())
+#            if digit in line:
+#                output_lst.append(line.replace(digit, digits_dict[digit]))
+#            else:
+#                continue
 #
-#for key, value in digits_dict.items():
-#    if key in word:
-#        word = word.replace(key, digits_dict[key])
-#print(word)
+#replace_digits(input_lst, output_lst, digits_dict)
+
+word = 'zoneight234'
+
+for key, value in digits_dict.items():
+    if key in word:
+        word = word.replace(key, digits_dict[key])
+print(word)
