@@ -27,14 +27,17 @@ for string in temp_lst:
             print('not a digit')
         index += 1
 
+print(result)
+
 for string in temp_lst:
     neg_index = -1
-    while len(result) < 2:
+    print(string[neg_index])
+    while len(result) < 3:
         if string[neg_index].isdigit():
-            print(f'{string[neg_index]} is a digit')
+            #print(f'{string[neg_index]} is a digit')
             result.append(int(string[neg_index]))
-        else:
-            print('not a digit')
-        neg_index += -1
+        #else:
+            #print('not a digit')
+        neg_index -= 1
 
 print(result)
