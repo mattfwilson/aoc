@@ -9,7 +9,7 @@ for line in inputs_lst:
     stripped_digits.append([char for char in line if char in str_digits])
 
 for line in stripped_digits:
-        calibration_lst.append(int(line[0] + line[-1]))
+    calibration_lst.append(int(line[0] + line[-1]))
 
 print(calibration_lst)
 print(sum(calibration_lst))
