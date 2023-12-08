@@ -1,5 +1,3 @@
-import re
-
 inputs = [line for line in open('inputs.txt').read().strip().split('\n')]
 input_lst = [line for line in inputs]
 
@@ -16,12 +14,25 @@ combined_digits = { 'zerone': '01',
                     'oneight': '18'
                     }
 
-string = '2sktwoclsk5jd4fzerone2s3kthreeight sldkf fw sower kfj sleep kfgdf weroi s wero'
+test_inputs = ['soweocltwone', '2sktwoclsk5jd4fzerone2s3kthreeight', 'nineightweroizerone']
 
-print(re.findall('sk', string))
-print(re.search('sk', string))
+def find_all(combo_dict, str_digits, inputs):
+    for line in inputs:
+        for key, val in combo_dict.items():
+            if key in line:
+                line.replace(key, val)
+            
+                print(f'LINE: {line}, KEY: {key}, VAL: {val}')
 
-print(re.findall('three', string))
-print(re.findall('\\bs\w+\\b', string))
 
-print(combined_digits)
+#        for digit in str_digits:
+#            if digit in line:
+#                index = str(str_digits.index(digit))
+#                line = line.replace(digit, index)
+#                print(f'input: {line}, key: {key}, val: {val}')
+
+    print(f'Inside outcome: {inputs}')
+    return str(line)
+
+find_all(combined_digits, str_digits, test_inputs)
+print(f'Outside outcome: {test_inputs}')
