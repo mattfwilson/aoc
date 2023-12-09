@@ -7,5 +7,5 @@ green = 0
 blue = 0
 
 for line in games:
-    line = line.strip('Game: ')
+    line = line.split(': ')
     print(line)
