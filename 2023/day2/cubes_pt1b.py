@@ -26,3 +26,8 @@ for i in sep_games:
 #        line = re.sub(r'Game ', '', string)
 #print(sep_games)
 
+for line in sep_games:
+    for itme in line:
+        game_id, draws = line.strip().split(': ')
+print(game_id)
+print(draws)
