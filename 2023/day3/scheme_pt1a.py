@@ -21,5 +21,7 @@ for line in schematic:
         find_symbols(char)
 
 for index, line in enumerate(schematic):
-    print(f'index: {index}, line {line}')
+    for symbol in symbols:
+        if symbol in line:
+            print(f'symbol: {symbol}, index: {index}, line {line}')
 
