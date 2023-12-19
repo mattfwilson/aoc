@@ -1,5 +1,5 @@
-schematic = []
-inputs = [schematic.append(line) for line in open('inputs.txt').read().split('\n')]
+grid = []
+inputs = [grid.append(line) for line in open('inputs.txt').read().split('\n')]
 symbols = []
 
 def find_symbols(char):
@@ -8,20 +8,16 @@ def find_symbols(char):
     elif char not in symbols:
         symbols.append(char)
 
-def check_for_symbols(line, index):
-    top_left, top_center, top_right = (line - 1, index - 1), (line - 1, index), (line - 1, index + 1)
-    left, center, right = (index - 1), index, (index + 1)
-    bottom_left, bottom_center, bottom_right = (line + 1, index - 1), (line + 1, index), (line + 1, index + 1)
-    print(top_left)
+def check_for_symbols(line, char):
+    top_left, top_center, top_right = (line - 1, char - 1), (line - 1, char), (line - 1, char + 1)
+    left, center, right = (char - 1), char, (char + 1)
+    bottom_left, bottom_center, bottom_right = (line + 1, char - 1), (line + 1, char), (line + 1, char + 1)
+    print(char)
 
-    return (top_left, top_center, top_right, left, center, right, bottom_left, bottom_center, bottom_right)
-
-for line in schematic:
+for line in grid:
     for char in line:
         find_symbols(char)
+        if not char.isnumeric() and char != '.':
+            check_for_symbols(line, char)
 
-for index, line in enumerate(schematic):
-    for symbol in symbols:
-        if symbol in line:
-            print(f'symbol: {symbol}, index: {index}, line {line}')
-
+print(symbols)
