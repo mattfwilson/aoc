@@ -1,6 +1,7 @@
 grid = []
 symbols = []
 targets = []
+grid_lines = []
 inputs = [grid.append(line) for line in open('inputs.txt').read().split('\n')]
 
 def check_for_symbols(line_i, char_i):
@@ -15,5 +16,7 @@ for line_i, line in enumerate(grid):
             check_for_symbols(line_i, char_i)
             targets.append((char_i, char))
 
-print(symbols)
-print(targets)
+for line_i, line in enumerate(grid):
+    grid_lines.append(line)
+
+print(grid_lines)
