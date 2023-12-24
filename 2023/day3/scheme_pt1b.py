@@ -4,8 +4,11 @@ targets = []
 grid_lines = []
 inputs = [grid.append(line) for line in open('inputs.txt').read().split('\n')]
 
-def check_for_symbols(line_i, char_i):
-    return line, char
+def check_for_symbols(line_i, line, char_i, char):
+    if char.isnumeric():
+        print(f'before line: {line - 1}')
+        print(f'after line: {line + 1}')
+    return char
 
 for line_i, line in enumerate(grid):
     for char_i, char in enumerate(line):
@@ -13,8 +16,8 @@ for line_i, line in enumerate(grid):
         if not char.isnumeric() and char != '.' and char not in symbols:
             symbols.append(char)
         elif char != '.' and char not in symbols:
-            check_for_symbols(line_i, char_i)
-            targets.append((char_i, char))
+            check_for_symbols(line_i, line, char_i, char)
+            targets.append((line_i, char_i))
 
 for line_i, line in enumerate(grid):
     grid_lines.append(line)
