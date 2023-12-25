@@ -6,9 +6,8 @@ inputs = [grid.append(line) for line in open('inputs.txt').read().split('\n')]
 
 def check_for_symbols(line_i, line, char_i, char):
     if char.isnumeric():
-        print(f'before line: {line - 1}')
-        print(f'after line: {line + 1}')
-    return char
+        return char
+    return line
 
 for line_i, line in enumerate(grid):
     for char_i, char in enumerate(line):
