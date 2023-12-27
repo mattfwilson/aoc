@@ -11,10 +11,3 @@ for i in range(len(grid_lines)):
     value = i
     my_list.append(value)
     print(f"Iteration {i}: {value}")
-
-index_choice = 33
-
-if index_choice < len(my_list):
-    print(f"Value at iteration {index_choice}: {my_list[index_choice]}")
-else:
-    print(f"Invalid iteration number: {index_choice}")
