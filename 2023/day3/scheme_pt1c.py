@@ -4,10 +4,12 @@ grid_lines = []
 my_list = []
 inputs = [grid.append(line) for line in open('inputs.txt').read().split('\n')]
 
-for line in grid:
-    grid_lines.append(line)
+for i in grid_lines:
+    for j in i:
+        if not j.isnumeric() and j != '.' and j not in symbols:
+            symbols.append(j)
 
-for i, value in enumerate(grid_lines):
+for i, value in enumerate(inputs):
     index = i
     my_list.append(value)
     print(f'Normal index: {index}')
@@ -16,3 +18,4 @@ for i, value in enumerate(grid_lines):
     pos_index = i + 1
     print(f'Positive index: {pos_index}')
 
+print(symbols)
