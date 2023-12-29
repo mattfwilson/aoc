@@ -10,5 +10,9 @@ for line in grid:
 for i, value in enumerate(grid_lines):
     index = i
     my_list.append(value)
-    print(f"Iteration {index}: {value}")
+    print(f'Normal index: {index}')
+    neg_index = i - 1
+    print(f'Negative index: {neg_index}')
+    pos_index = i + 1
+    print(f'Positive index: {pos_index}')
 
