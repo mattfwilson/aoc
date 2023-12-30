@@ -4,10 +4,10 @@ grid_lines = []
 my_list = []
 inputs = [grid.append(line) for line in open('inputs.txt').read().split('\n')]
 
-for i in grid_lines:
-    for j in i:
-        if not j.isnumeric() and j != '.' and j not in symbols:
-            symbols.append(j)
+for line in grid_lines:
+    for char in line:
+        if not char.isnumeric() and char != '.' and char not in symbols:
+            symbols.append(char)
 
 for i, value in enumerate(inputs):
     index = i
