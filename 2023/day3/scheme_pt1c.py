@@ -11,16 +11,17 @@ for i in enumerate(grid_lines):
     value = i
     my_list.append(value)
 
-index_choice = 0
-index_after = index_choice + 1
-index_before = index_choice - 1
+index = 0
+index_after = index + 1
+index_before = index - 1
 
-for line in my_list:
-    index_choice += 1
-    print(line)
-#    if index_choice < 0:
-#        print(f'current: {index_choice}, after: {index_after}')
-#    elif index_choice == len(my_list):
-#        print(f'before: {index_before}, current: {index_choice}')
-#    else:
-#        print(f'before: {index_before}, current: {index_choice}, after: {index_after}')
+
+for index in my_list:
+    if index == 0:
+        print(f'current: {my_list[index]}, after: {my_list[index_after]}')
+    elif index == len(my_list):
+        print(f'before: {my_list[index_before]}, current: {my_list[index]}')
+    else:
+        print(f'before: {my_list[index_before]}, current: {my_list[index]}, after: {my_list[index_after]}')
+
+print(len(my_list))
