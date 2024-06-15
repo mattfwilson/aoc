@@ -3,11 +3,11 @@ from collections import Counter
 inputs = [line for line in open('inputs.txt').read().strip().split('\n')]
 oxygen = []
 scrubber = []
+bit_lst = []
 index = 0
 
 def find_most_bits(inputs, index):
-    print(f'Index count: {index}')
-
+    print(f'Index iteration: {index}')
 
     counter = Counter(inputs[index])
     most_common_item = counter.most_common()[0]
@@ -15,17 +15,17 @@ def find_most_bits(inputs, index):
     print(most_common_item)
 
     for line in inputs:
-        print(line[index])
         if line[index] == most_common_item:
-            oxygen.append(line)
+            pass
         else:
-            scrubber.append(line)
+            inputs.remove(line)
+    return inputs
 
-    return oxygen, scrubber
-
+print(inputs)
 while True:
     if index > 11:
         break
     else:
-        oxygen = find_most_bits(inputs, index)
+        bit_lst = find_most_bits(inputs, index)
     index += 1
+
