@@ -1,8 +1,6 @@
 from collections import Counter
 
 inputs = [line for line in open('inputs.txt').read().strip().split('\n')]
-oxygen = []
-scrubber = []
 bit_lst = []
 index = 0
 
@@ -21,7 +19,6 @@ def find_most_bits(inputs, index):
             inputs.remove(line)
     return inputs
 
-print(inputs)
 while True:
     if index > 11:
         break
