@@ -20,9 +20,10 @@ def remove_bits(inputs, index, end):
                     inputs.remove(line)
         index += 1
     
-    if len(inputs) <= 1:
+    if len(inputs) == 1:
         return inputs
     else:
-        remove_bits(inputs, index + 1, end)
+        remove_bits(inputs, index, end)
 
 remove_bits(inputs, 0, 11)
+print(inputs)
