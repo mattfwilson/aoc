@@ -1,4 +1,10 @@
 lst1 = []
-lst1 = [lst1.append(line) for line in open('inputs.txt').read().split('\n')]
+lst2 = []
 
-print(lst1)
+with open("inputs.txt", "r") as file:
+    line = file.read().strip('\n').split()
+    lst1.append(int(line[0]))
+
+for i in lst1:
+    print(type(i))
+
