@@ -1,23 +1,26 @@
 inputs = []
 int_inputs = []
-count = 0
+is_consecutive = []
+is_decreasing = []
 
 
 with open('inputs.txt', 'r') as file:
     for line in file:
         inputs.append(line.strip().split())
 
-int_inputs = [(lst, int(num)) for lst in inputs for num in lst]
-
 for lst in inputs:
-    print(lst)
+    int_inputs.append([int(num) for num in lst])
+        
+for lst in int_inputs:
+    if all(lst[i] < lst[i + 1] for i in range(len(lst) - 1)):
+        is_consecutive.append(lst)
 
+print(f'increasing check: {is_consecutive}')
+print(len(is_consecutive))
 
 for lst in int_inputs:
-    for num in lst:
-        print(type(num))
+    if all(lst[i] > lst[i + 1] for i in range(len(lst) - 1)):
+        is_consecutive.append(lst)
 
-print(type(int_inputs[0][0]))
-print(type(int_inputs[1][1]))
-
-
+print(f'decreasing check: {is_consecutive}')
+print(len(is_consecutive))
