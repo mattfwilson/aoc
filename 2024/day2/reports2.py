@@ -1,10 +1,5 @@
 inputs = []
 int_inputs = []
-valid_diffs = []
-no_dupes = []
-invalid_diffs = []
-is_increasing = []
-res_lst = []
 
 
 with open('inputs.txt', 'r') as file:
@@ -14,49 +9,37 @@ with open('inputs.txt', 'r') as file:
 def has_dupes(lst):
     return len(lst) != len(set(lst))
 
-# convert list to ints
+# convert strs to ints
 for lst in inputs:
     int_inputs.append([int(num) for num in lst])
 
+print(f'int_inputs: {len(int_inputs)}')
 
-# filter differences equaling 1-3
+# remove lsts that have dupes
 for lst in int_inputs:
-    dupe = has_dupes(lst)
-
-    if dupe == True:
+    if has_dupes(lst):
         int_inputs.remove(lst)
-for lst in no_dupes:
+
+print(f'int_inputs after dupe removal: {len(int_inputs)}')
+
+# remove lsts not in valid range
+for lst in int_inputs:
     valid_range = all(abs(lst[i] - lst[i + 1]) for i in range(len(lst) - 1))
 
-    if valid_range > 0 and valid_range < 4:
-        valid_diffs.append(lst)
+    if 0 > valid_range < 4:
+        pass
     else:
-        invalid_diffs.append(lst)
+        int_inputs.remove(lst)
 
-for lst in no_dupes:
-    print(lst)
+print(f'int_inputs after range check: {len(int_inputs)}')
 
-print(f'len of valid_diffs: {len(valid_diffs)}')
-print(f'len of invalid_diffs: {len(invalid_diffs)}')
+# remove lsts that are not strictly increasing/decreasing
+for lst in int_inputs:
+    if all(lst[i] < lst[i + 1] for i in range(len(lst) - 1)):
+        pass
+    elif all(lst[i] > lst[i + 1] for i in range(len(lst) - 1)):
+        pass
+    else:
+        int_inputs.remove(lst)
 
-test1 = has_dupes(int_inputs[0])
-test2 = has_dupes(int_inputs[3])
-print(test1)
-print(test2)
-
-## filter strictly increasing
-#for lst in valid_diffs:
-#    if all(lst[i] < lst[i + 1] for i in range(len(lst) - 1)):
-#        res_lst.append(lst)
-#
-#print(f'is_increasing: {is_increasing}')
-#print(len(is_increasing))
-#
-## filter strictly decreasing
-#for lst in valid_diffs:
-#    if all(lst[i] > lst[i + 1] for i in range(len(lst) - 1)):
-#        res_lst.append(lst)
-#
-#print(f'res_lst: {res_lst}')
-#print(len(res_lst))
-
+print(f'int_inputs after increasing/decreasing check: {len(int_inputs)}')
