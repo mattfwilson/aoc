@@ -16,17 +16,17 @@ for lst in inputs:
 print(f'int_inputs: {len(int_inputs)}')
 
 # remove lsts that have dupes
-for lst in int_inputs:
-    if has_dupes(lst):
-        int_inputs.remove(lst)
+#for lst in int_inputs:
+#    if has_dupes(lst):
+#        int_inputs.remove(lst)
 
 print(f'int_inputs after dupe removal: {len(int_inputs)}')
 
 # remove lsts not in valid range
 for lst in int_inputs:
-    valid_range = [abs(lst[i] - lst[i + 1]) for i in range(len(lst) - 1)]
+    valid_range = [lst[i] - lst[i + 1] for i in range(len(lst) - 1)]
 
-    if 0 < valid_range[i] < 4:
+    if 0 < valid_range < 4:
         pass
     else:
         int_inputs.remove(lst)
