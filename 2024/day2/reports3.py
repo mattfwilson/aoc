@@ -1,6 +1,5 @@
 inputs = []
 int_inputs = []
-i = 0
 
 with open('inputs.txt', 'r') as file:
     for line in file:
@@ -16,8 +15,8 @@ print(f'int_inputs after dupe removal: {len(int_inputs)}')
 for lst in int_inputs:
     valid_range = [abs(lst[i] - lst[i + 1]) for i in range(len(lst) - 1)]
 
-    for i in valid_range:
-        if 0 < lst[i] < 4:
+    for j in valid_range:
+        if 0 < lst[j] < 4:
             pass
         else:
             int_inputs.remove(lst)
