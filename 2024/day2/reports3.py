@@ -8,6 +8,9 @@ with open('inputs.txt', 'r') as file:
 for lst in inputs:
     int_inputs.append([int(num) for num in lst])
 
+print(type(inputs[0][0]))
+print(type(int_inputs[0][0])
+
 print(f'int_inputs after dupe removal: {len(int_inputs)}')
 
 for lst in int_inputs:
