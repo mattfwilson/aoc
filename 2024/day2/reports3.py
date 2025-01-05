@@ -11,13 +11,12 @@ for lst in inputs:
 print(f'int_inputs after dupe removal: {len(int_inputs)}')
 
 for lst in int_inputs:
-    check_range = [abs(lst[i] - lst[i + 1]) for i in range(len(lst) - 1)]
+    check_range = all(abs(lst[i] - lst[i + 1]) for i in range(len(lst) - 1))
 
-    for num in check_range:
-        if 0 < num < 4:
-            continue
-        else:
-            check_range.remove(num)
+    if 0 < check_range < 4:
+        continue
+    else:
+        int_inputs.remove(lst)
 
 print(f'int_inputs after range check: {len(int_inputs)}')
 
