@@ -1,9 +1,10 @@
 inputs = []
-int_inputs = []
 
 with open('inputs.txt', 'r') as file:
     for line in file:
         inputs.append(line.strip().split())
+
+int_inputs = []
 
 for lst in inputs:
     int_inputs.append([int(num) for num in lst])
@@ -14,7 +15,7 @@ for lst in int_inputs:
     check_range = all(abs(lst[i] - lst[i + 1]) for i in range(len(lst) - 1))
 
     if 0 < check_range < 4:
-        continue
+        pass
     else:
         int_inputs.remove(lst)
 
