@@ -22,9 +22,10 @@ for lst in int_inputs:
 print(f'int_inputs after range check: {len(int_inputs)}')
 
 for lst in int_inputs:
-    if all(lst[i] < lst[i + 1] for i in range(len(lst) - 1)):
-        pass
-    elif all(lst[i] > lst[i + 1] for i in range(len(lst) - 1)):
+    less_than = [lst[i] < lst[i + 1] for i in range(len(lst) - 1)]
+    greater_than = [lst[i] > lst[i + 1] for i in range(len(lst) - 1)]
+
+    if less_than or greater_than:
         pass
     else:
         int_inputs.remove(lst)
