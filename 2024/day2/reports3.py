@@ -24,10 +24,13 @@ print(f'int_inputs after range check: {len(int_inputs)}')
 for lst in int_inputs:
     less_than = [lst[i] < lst[i + 1] for i in range(len(lst) - 1)]
     greater_than = [lst[i] > lst[i + 1] for i in range(len(lst) - 1)]
+   
+    both_lsts = less_than + greater_than
 
-    if less_than or greater_than:
-        pass
-    else:
-        int_inputs.remove(lst)
+    for num in both_lsts:
+        if num:
+            pass
+        else:
+            int_inputs.remove(less_than)
 
 print(f'int_inputs after increasing/decreasing check: {len(int_inputs)}')
