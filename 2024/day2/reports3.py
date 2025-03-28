@@ -29,3 +29,10 @@ for lst in int_inputs:
 
 print(f'int_inputs after increasing/decreasing check: {len(int_inputs)}')
 print(int_inputs)
+
+ui = int(input("enter num: "))
+
+if 0 < ui < 4:
+    print("in between 0 and 4")
+else:
+    print("outside of 0 and 4")
