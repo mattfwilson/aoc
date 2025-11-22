@@ -9,33 +9,28 @@ int_inputs = []
 for lst in inputs:
     int_inputs.append([int(num) for num in lst])
 
-def levels_increasing(lst):
-    return all(x < y for x, y in zip(lst, lst[1:]))
+def increase(report):
+    return all(x < y for x, y in zip(report, report[1:]))
 
-def levels_decreasing(lst):
-    return all(x < y for x, y in zip(lst, lst[1:]))
+def decrease(report):
+    return all(x > y for x, y in zip(report, report[1:]))
 
-def levels_not_same(lst):
-    return all(x != y for x, y in zip(lst, lst[1:]))
+def no_dupes(report):
+    return all(x != y for x, y in zip(report, report[1:]))
 
 for report in int_inputs:
-    if levels_not_same(report):
+    if increase(report) or decrease(report):
         pass
     else:
         int_inputs.remove(report)
 
 for report in int_inputs:
-    if levels_increasing(report):
+    if no_dupes(report):
         pass
     else:
         int_inputs.remove(report)
 
-for report in int_inputs:
-    if levels_decreasing(report):
-        pass
-    else:
-        int_inputs.remove(report)
-
-print(int_inputs)
-print(f'len of int_inputs: {len(int_inputs)}')
+for i in int_inputs:
+    print(increase(i))
+print(f'Remaining levels: {len(int_inputs)}')
 
