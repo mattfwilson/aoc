@@ -1,4 +1,11 @@
 nums = list(range(100))
+zeroes = 0
+inputs = []
+
+with open('inputs.txt', 'r') as file:
+    for line in file:
+        clean = line.strip()
+        inputs.append(clean)
 
 class CycleList:
     def __init__(self, lst):
@@ -11,13 +18,16 @@ class CycleList:
 
     def current(self):
         return self.lst[self.idx]
-
-
+ 
 dial = CycleList(nums)
-print(dial.current())
-dial.move(5)
-print(dial.current())
-dial.move(-65)
-print(dial.current())
-dial.move(14)
-print(dial.current())
+nums_lst = [(val[0], int(val[1:])) for val in inputs]
+
+for direction, amount in nums_lst:
+    print(direction, amount)
+    step = -amount if direction == 'L' else amount
+    dial.move(step)
+
+    if dial.current() == 0:
+        zeroes += 1
+
+print(zeroes)
